@@ -1035,6 +1035,10 @@ class AutoScalingBackend(BaseBackend):
         group = self.autoscaling_groups[group_name]
         group.suspended_processes = scaling_processes or []
 
+    def resume_processes(self, group_name, scaling_processes):
+        group = self.autoscaling_groups[group_name]
+        group.suspended_processes = scaling_processes or []
+
     def set_instance_protection(
         self, group_name, instance_ids, protected_from_scale_in
     ):
